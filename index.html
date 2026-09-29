@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>KickShare — Аренда электросамокатов</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Хедер с навигацией по экранам (для демонстрации) -->
+  <header class="header">
+    <div class="logo">Kick<span>Share</span></div>
+    <nav class="nav">
+      <button class="nav-btn active" onclick="switchScreen('screen-auth')">Вход</button>
+      <button class="nav-btn" onclick="switchScreen('screen-map')">Карта</button>
+      <button class="nav-btn" onclick="switchScreen('screen-scooter')">Самокат</button>
+      <button class="nav-btn" onclick="switchScreen('screen-ride')">Поездка</button>
+    </nav>
+  </header>
+
+  <main class="main">
+
+    <!-- Экран 1: Авторизация -->
+    <section id="screen-auth" class="screen screen-auth active">
+      <div class="auth-card">
+        <h2>Вход в KickShare</h2>
+        <form class="auth-form" onsubmit="event.preventDefault(); switchScreen('screen-map');">
+          <div class="form-group">
+            <label for="email">Электронная почта</label>
+            <input type="email" id="email" placeholder="user@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Пароль</label>
+            <input type="password" id="password" placeholder="••••••••" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Войти</button>
+        </form>
+        <p class="auth-footer">Нет аккаунта? <a href="#">Зарегистрироваться</a></p>
+      </div>
+    </section>
+
+    <!-- Экран 2: Карта самокатов -->
+    <section id="screen-map" class="screen screen-map">
+      <div class="map-container">
+        <!-- Имитация карты -->
+        <div class="mock-map">
+          <div class="user-location-marker" title="Вы здесь"></div>
+          <div class="scooter-marker" style="top: 35%; left: 40%;" onclick="switchScreen('screen-scooter')">⚡ #KS-1024</div>
+          <div class="scooter-marker" style="top: 60%; left: 70%;" onclick="switchScreen('screen-scooter')">⚡ #KS-8831</div>
+        </div>
+
+        <div class="map-controls">
+          <div class="search-bar">
+            <input type="text" placeholder="Поиск улицы или зоны...">
+          </div>
+          <button class="btn btn-locate">📍 Мое местоположение</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Экран 3: Карточка самоката -->
+    <section id="screen-scooter" class="screen screen-scooter">
+      <div class="scooter-card">
+        <div class="scooter-header">
+          <h3>Самокат #KS-1024</h3>
+          <span class="badge badge-success">85% заряда</span>
+        </div>
+        <div class="scooter-details">
+          <p><strong>Тариф:</strong> 0.25 BYN/мин + 2 BYN старт</p>
+          <p><strong>Запас хода:</strong> ~28 км</p>
+          <p><strong>Расстояние:</strong> 120 метров от вас</p>
+          <p class="zone-info">ℹ️ Зеленая зона: разрешено парковаться в пределах ТТК.</p>
+        </div>
+        <div class="scooter-actions">
+          <button class="btn btn-primary" onclick="switchScreen('screen-ride')">Начать поездку</button>
+          <button class="btn btn-secondary" onclick="switchScreen('screen-map')">Назад к карте</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Экран 4: Текущая поездка -->
+    <section id="screen-ride" class="screen screen-ride">
+      <div class="ride-panel">
+        <div class="ride-header">
+          <h3>Текущая поездка</h3>
+          <span class="pulse-indicator">● В пути</span>
+        </div>
+        <div class="ride-stats">
+          <div class="stat-box">
+            <span class="stat-label">Время</span>
+            <span class="stat-value">12:45</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Стоимость</span>
+            <span class="stat-value">5.18 BYN</span>
+          </div>
+        </div>
+        <div class="scooter-info-mini">
+          <span>Самокат: #KS-1024</span>
+          <span>Заряд: 78%</span>
+        </div>
+        <button class="btn btn-danger" onclick="alert('Поездка завершена! Итоговая стоимость: 5.18 BYN'); switchScreen('screen-map');">
+          Завершить поездку
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 KickShare. Мобильно-ориентированный интерфейс.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
