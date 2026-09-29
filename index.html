@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>KickShare — Аренда электросамокатов</title>
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
+  <!-- Подключаем style.css из корня (без css/) -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Хедер с навигацией по экранам (для демонстрации) -->
+  <!-- Хедер с навигацией по экранам -->
   <header class="header">
     <div class="logo">Kick<span>Share</span></div>
     <nav class="nav">
@@ -44,7 +44,6 @@
     <!-- Экран 2: Карта самокатов -->
     <section id="screen-map" class="screen screen-map">
       <div class="map-container">
-        <!-- Имитация карты -->
         <div class="mock-map">
           <div class="user-location-marker" title="Вы здесь"></div>
           <div class="scooter-marker" style="top: 35%; left: 40%;" onclick="switchScreen('screen-scooter')">⚡ #KS-1024</div>
@@ -113,6 +112,7 @@
     <p>&copy; 2026 KickShare. Мобильно-ориентированный интерфейс.</p>
   </footer>
 
-  <script src="js/app.js"></script>
+  <!-- Подключаем ap.js из корня (без js/ и с одной 'p') -->
+  <script src="ap.js"></script>
 </body>
 </html>
